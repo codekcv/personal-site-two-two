@@ -128,9 +128,8 @@ const Card: React.FC<Props> = (props) => {
         }}
         initial="out"
         animate={props.inView ? 'in' : 'out'}
-        style={{ zIndex: zIndex }}
+        style={{ zIndex, ...(size && { ...size }) }}
         {...styleProps}
-        {...(size && { ...size })}
       >
         <motion.div
           {...(props?.inViewRef && { ref: props.inViewRef })}
@@ -161,9 +160,9 @@ const Card: React.FC<Props> = (props) => {
               overflowY: isOpen ? 'scroll' : 'hidden',
               border: '1px dotted rgba(0, 0, 0, 0.1)',
               boxShadow:
-                '0 0.75rem 3rem 0em rgba(0, 0, 0, 0.05), 0 0.75rem 0rem 0rem rgba(0, 0, 0, 0.05)'
+                '0 0.75rem 3rem 0em rgba(0, 0, 0, 0.05), 0 0.75rem 0rem 0rem rgba(0, 0, 0, 0.05)',
+              ...(size && { ...size })
             }}
-            {...(size && { ...size })}
           >
             <motion.div
               className="flex justify-center items-center"
@@ -172,7 +171,7 @@ const Card: React.FC<Props> = (props) => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
             >
-              <div {...(size && { ...size })}>{contentPrev}</div>
+              <div {...(size && { style: { ...size } })}>{contentPrev}</div>
             </motion.div>
 
             <AnimatePresence exitBeforeEnter>
@@ -201,8 +200,6 @@ const Card: React.FC<Props> = (props) => {
                 >
                   <div
                     className="absolute top-0 left-0 w-auto h-auto opacity-40 rounded-xl"
-                    // w="inherit"
-                    // h="inherit"
                     style={{ backgroundColor: '#ADD8E6' }}
                   />
 
