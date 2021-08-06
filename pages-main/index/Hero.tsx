@@ -93,14 +93,13 @@ const Hero = (): JSX.Element => {
         }}
       >
         <div className="flex flex-col items-center">
-          <div className="rounded-full overflow-hidden">
-            <Image
-              src={profilePicture}
-              width={256}
-              height={256}
-              alt="Christian Villamin's photo."
-            />
-          </div>
+          <Image
+            className="rounded-full overflow-hidden"
+            src={profilePicture}
+            width={256}
+            height={256}
+            alt="Christian Villamin's photo."
+          />
 
           <Bobble>
             <h1
