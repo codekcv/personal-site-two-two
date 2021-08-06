@@ -3,7 +3,11 @@ import { motion } from 'framer-motion'
 const minVary = 0.85
 const maxVary = 1.15
 
-const Bobble: React.FC = (props) => {
+type Props = {
+  className?: string
+}
+
+const Bobble: React.FC<Props> = (props) => {
   const { children } = props
   const passedProps = { ...props }
   const dirX = Math.random() < 0.5
@@ -22,10 +26,11 @@ const Bobble: React.FC = (props) => {
   ]
 
   delete passedProps.children
+  delete passedProps.className
 
   return (
     <motion.div
-      className="flex justify-center items-center"
+      className={`${props?.className ?? ''} flex justify-center items-center`}
       animate={{ transform: x }}
       transition={{
         repeat: Infinity,
@@ -44,6 +49,10 @@ const Bobble: React.FC = (props) => {
       </motion.div>
     </motion.div>
   )
+}
+
+Bobble.defaultProps = {
+  className: ''
 }
 
 export default Bobble
