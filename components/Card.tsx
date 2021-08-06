@@ -200,7 +200,7 @@ const Card: React.FC<Props> = (props) => {
                   exit={{ opacity: 0 }}
                 >
                   <div
-                    className="absolute top-0 left-0 w-auto h-auto opacity-40 rounded-xl"
+                    className="absolute top-0 left-0 w-full h-full opacity-40 rounded-xl"
                     style={{ backgroundColor: '#ADD8E6' }}
                   />
 
