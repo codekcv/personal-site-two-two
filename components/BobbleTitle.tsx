@@ -36,7 +36,11 @@ const BobbleTitle: React.FC<Props> = ({ inView, isOpen, children }) => {
   }, [isOpen])
 
   return (
-    <Bobble className={`relative ${isActive ? 'z-40' : 'z-10'}`}>
+    <Bobble
+      className={`
+      ${isActive ? 'z-40 pointer-events-none' : 'z-10'}
+      relative`}
+    >
       <motion.div
         variants={{
           close: {},

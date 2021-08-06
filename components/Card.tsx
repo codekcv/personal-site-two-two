@@ -69,12 +69,12 @@ const Card: React.FC<Props> = (props) => {
     }
   }, [])
 
-  const handleOpen = () => {
-    if (isOpen && cardRef?.current) {
+  const handleOpen = (toOpen: boolean) => {
+    if (!toOpen && cardRef?.current) {
       cardRef.current.scroll({ top: 0, behavior: 'smooth' })
     }
 
-    setIsOpen(!isOpen)
+    setIsOpen(toOpen)
   }
 
   let transform = 'translate(0rem, -3rem)'
@@ -98,7 +98,8 @@ const Card: React.FC<Props> = (props) => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className="fixed left-0 top-0 h-screen w-full z-30"
+            className="fixed left-0 top-0 h-screen w-full z-30 cursor-pointer"
+            onClick={() => handleOpen(false)}
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.5 }}
             exit={{ opacity: 0 }}
@@ -143,10 +144,12 @@ const Card: React.FC<Props> = (props) => {
           onHoverEnd={() => setIsHover(false)}
         >
           <motion.div
-            className="bg-white cursor-pointer rounded-xl overflow-x-hidden p-8"
+            className={`
+            ${zIndex ? '' : 'cursor-pointer'}
+            bg-white rounded-xl overflow-x-hidden p-8`}
             ref={cardRef}
             id="card-container"
-            onClick={handleOpen}
+            onClick={() => handleOpen(true)}
             variants={{
               close: {},
               open: {
