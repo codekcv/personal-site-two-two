@@ -5,7 +5,7 @@ const menus = ['Home', 'Projects', 'Blogs', 'Contact'].map((menu) => (
 ))
 
 const Header = (): JSX.Element => (
-  <div className="w-full my-8 justify-center items-center">
+  <div className="w-full my-8 flex justify-center items-center">
     <div className="flex">{menus}</div>
   </div>
 )
