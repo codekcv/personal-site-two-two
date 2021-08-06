@@ -44,7 +44,7 @@ const About = (): JSX.Element => {
       </BobbleTitle>
 
       <Card
-        className="-mt-6"
+        className="-mt-8"
         inView={inView}
         isOpen={isOpen}
         setIsOpen={setIsOpen}

@@ -29,7 +29,7 @@ const Card: React.FC<Props> = (props) => {
   const { isOpen, setIsOpen, contentPrev, contentFull } = props
   const [size, setSize] = useState<SizeProps>(null)
   const [move, setMove] = useState({ x: 0, y: 0 })
-  const [zIndex, setZIndex] = useState(0)
+  const [zIndex, setZIndex] = useState(false)
   const [isHover, setIsHover] = useState(false)
   const posRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
@@ -38,8 +38,6 @@ const Card: React.FC<Props> = (props) => {
   delete styleProps.isOpen
   delete styleProps.setIsOpen
   delete styleProps?.className
-
-  console.log(move)
 
   useEffect(() => {
     if (isOpen) {
@@ -51,13 +49,13 @@ const Card: React.FC<Props> = (props) => {
       const posY = (posRef?.current?.getBoundingClientRect().y ?? 0) - 32
 
       setMove({ x: targX - currX, y: posY * -1 })
-      setZIndex(100)
+      setZIndex(true)
     } else {
       document.body.style.height = 'initial'
       document.body.style.overflow = 'initial'
 
       setTimeout(() => {
-        setZIndex(0)
+        setZIndex(false)
       }, 400)
     }
   }, [isOpen])
@@ -112,7 +110,10 @@ const Card: React.FC<Props> = (props) => {
       </AnimatePresence>
 
       <motion.div
-        className={`${props?.className ?? ''} relative`}
+        className={`
+        ${props?.className ?? ''}
+        ${zIndex ? 'z-30' : 'z-0'}
+        relative`}
         ref={posRef}
         variants={{
           out: {
@@ -128,7 +129,7 @@ const Card: React.FC<Props> = (props) => {
         }}
         initial="out"
         animate={props.inView ? 'in' : 'out'}
-        style={{ zIndex, ...(size && { ...size }) }}
+        style={{ ...(size && { ...size }) }}
         {...styleProps}
       >
         <motion.div
