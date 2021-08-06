@@ -38,7 +38,7 @@ const About = (): JSX.Element => {
   })
 
   return (
-    <div ref={ref} className="mt-8" onClick={() => setIsOpen(!isOpen)}>
+    <div ref={ref} className="mt-8">
       <BobbleTitle inView={inView} isOpen={isOpen}>
         About
       </BobbleTitle>
@@ -61,7 +61,7 @@ const About = (): JSX.Element => {
         }
         contentFull={
           <>
-            <h1>Hello, I&apos;m Christian Villamin!</h1>
+            <h1 className="text-4xl">Hello, I&apos;m Christian Villamin!</h1>
 
             <p className="mt-4">
               {`{...}`}
@@ -74,7 +74,7 @@ const About = (): JSX.Element => {
             </p>
 
             <div className="mt-8">
-              <h2>Programming History</h2>
+              <h2 className="text-3xl">Programming History</h2>
 
               <p className="mt-4">
                 <a
@@ -134,7 +134,7 @@ const About = (): JSX.Element => {
             </div>
 
             <div className="mt-8">
-              <h2>Hobbies &amp; Interests</h2>
+              <h2 className="text-3xl">Hobbies &amp; Interests</h2>
 
               <p className="mt-2">
                 I enjoy reading fantasy books &amp; mystery manga(
@@ -182,24 +182,33 @@ const About = (): JSX.Element => {
               <p className="text-2xl mt-4">- Favorite Shows</p>
 
               <p>
-                Detective Conan, Avatar: The Last Airbender, Sherlock, Breaking
-                Bad, Game of Thrones, Silicon Valley, How To Get Away With
-                Murder, The Midnight Gospel, Adventure Time, Rick and Morty
+                Detective Conan, Avatar: The Last Airbender, The Queen&apos;s
+                Gambit, Sherlock, Breaking Bad, Game of Thrones, Silicon Valley,
+                How To Get Away With Murder, The Midnight Gospel, Adventure
+                Time, Rick and Morty, Fullmetal Alchemist: Brotherhood, Cosmos:
+                A Spacetime Odyssey.
               </p>
 
-              <p className="text-2xl mt-4">- Favorite Games</p>
+              <p className="text-2xl mt-4">- Favorite Movies</p>
+              <p>Like Stars on Earth, Good Will Hunting, The Lego Movie.</p>
+
+              <div className="flex items-center mt-4">
+                <p className="text-2xl">- Favorite Games</p>
+
+                <p className="text-sm italic">
+                  &nbsp;(But I don&apos; play anymore cuz&apos; time and stuff.)
+                </p>
+              </div>
 
               <p>
-                Kingdom Hearts series, Minecraft, Terraria, The Witness, Braid,
-                Undertale, Runescape, Sekiro: Shadows Diee Twice, DOTA 2
+                Kingdom Hearts series, Minecraft, Terraria, Stardew Valley, The
+                Witness, Braid, Undertale, Runescape, Sekiro: Shadows Die Twice,
+                DOTA 2.
               </p>
 
               <p className="text-2xl mt-4">- Favorite Documentary</p>
 
-              <p>
-                Kingdom Hearts series, Minecraft, Terraria, Stardew Valley, The
-                Witness, Braid, Undertale, Runescape, DOTA 2
-              </p>
+              <p>Perfect Fungi</p>
 
               {/* <Text mt="1rem">
                Full Metal Alchemist: Brotherhood
