@@ -34,10 +34,14 @@ const Card: React.FC<Props> = (props) => {
   const posRef = useRef<HTMLDivElement>(null)
   const cardRef = useRef<HTMLDivElement>(null)
 
-  delete styleProps.inView
-  delete styleProps.isOpen
-  delete styleProps.setIsOpen
-  delete styleProps?.className
+  useEffect(() => {
+    if (posRef?.current) {
+      setSize({
+        width: posRef.current.getBoundingClientRect().width,
+        height: posRef.current.getBoundingClientRect().height
+      })
+    }
+  }, [])
 
   useEffect(() => {
     if (isOpen) {
@@ -60,14 +64,10 @@ const Card: React.FC<Props> = (props) => {
     }
   }, [isOpen])
 
-  useEffect(() => {
-    if (posRef?.current) {
-      setSize({
-        width: posRef.current.getBoundingClientRect().width,
-        height: posRef.current.getBoundingClientRect().height
-      })
-    }
-  }, [])
+  delete styleProps.inView
+  delete styleProps.isOpen
+  delete styleProps.setIsOpen
+  delete styleProps?.className
 
   const handleOpen = (toOpen: boolean) => {
     if (!toOpen && cardRef?.current) {
