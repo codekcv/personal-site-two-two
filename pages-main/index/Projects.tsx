@@ -54,7 +54,7 @@ const Projects = (): JSX.Element => {
 
   return (
     <div className="mt-2">
-      <BobbleTitle inView={inView} isOpen={isOpen}>
+      <BobbleTitle inView={inView} isOpen={isOpen || x}>
         Project
       </BobbleTitle>
 
@@ -84,7 +84,7 @@ const Projects = (): JSX.Element => {
       />
 
       <Card
-        className="mt-16  "
+        className="mt-16 "
         inViewRef={refB}
         inView={inViewB}
         isOpen={x}
