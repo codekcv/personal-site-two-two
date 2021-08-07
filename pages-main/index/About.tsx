@@ -201,18 +201,14 @@ const About = (): JSX.Element => {
               </div>
 
               <p>
-                Kingdom Hearts series, Minecraft, Terraria, Stardew Valley, The
-                Witness, Braid, Undertale, Runescape, Sekiro: Shadows Die Twice,
-                DOTA 2.
+                Kingdom Hearts series, Professor Layton series, Minecraft,
+                Terraria, Stardew Valley, The Witness, Braid, Undertale,
+                Runescape, Sekiro: Shadows Die Twice, DOTA 2.
               </p>
 
               <p className="text-2xl mt-4">- Favorite Documentary</p>
 
               <p>Perfect Fungi</p>
-
-              {/* <Text mt="1rem">
-               Full Metal Alchemist: Brotherhood
-              </Text> */}
             </div>
 
             <div
